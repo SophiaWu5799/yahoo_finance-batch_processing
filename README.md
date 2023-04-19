@@ -37,7 +37,7 @@ The following technologies were used in this project:
 
 1. Python: Python is used for data cleaning, transformation, and analysis.
 
-2.Pandas: Pandas is used for data manipulation and analysis.
+2. Pandas: Pandas is used for data manipulation and analysis.
 
 3. Spark: Spark is used for processing large amounts of data.
 
