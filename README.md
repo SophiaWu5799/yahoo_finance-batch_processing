@@ -10,9 +10,9 @@ In this data engineering project, we aim to explore the effect of the COVID-19 p
 ## Data Sources
 This project uses the following data sources:
 
-1. SP500 stock list (CSV file): The SP500 stock list is obtained from a MySQL database. The CSV file contains information about the stock ticker, name, and sector of each company in the index.
+1. SP500 stock list (CSV file): The SP500 stock list is obtained from S3 bucket. The CSV file contains information about stock tickers, names, ectors and so on.
 
-2. COVID case global data (CSV file): The COVID case global data is obtained from an Azure storage account. The CSV file contains information about the number of COVID cases and deaths in different countries and regions.
+2. COVID case global data (CSV file): The COVID case global data is obtained from a MySQL database. The CSV file contains information about the number of COVID cases and deaths in different countries and regions.
 
 3. Yahoo Finance API: The Yahoo Finance API is used to obtain the historical stock prices of the companies in the SP500 index. The API returns data such as the date, open, close, high, low, adjusted close, and volume.
 
