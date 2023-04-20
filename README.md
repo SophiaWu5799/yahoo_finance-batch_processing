@@ -1,6 +1,5 @@
-# yahoo_finance-batch_processing
 
-## The Pandemic’s Effect on the Stock Market: A Data-Driven Study
+# The Pandemic’s Effect on the Stock Market: A Data engineering project
 
 ## Project Original Thoughts
 Have you been confused by the impact of the COVID-19 pandemic on the stock market? The pandemic has caused significant volatility and uncertainty in the market, leaving many investors wondering how to navigate this new environment.
