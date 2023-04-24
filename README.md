@@ -41,7 +41,7 @@ When downloading 500 stocks of 10 years' data to create a DataFrame, it can gene
 
 - I also transformed the data by joining the historical stock prices and COVID case number data by dates. This enabled me to calculate the correlation between these two variables and gain insights into how the pandemic impacted the stock market. For instance, when analyzing the correlation coefficient for AAPL, we observed a shift from a strong negative correlation in Q2 2020 (-0.681) and Q3 2020 (-0.680) to a strong positive correlation in Q4 2020 (0.804). This analysis provides insights into how the relationship between COVID cases and stock prices changed over time, not just for AAPL but also for other companies. Furthermore, I conducted correlation analysis between industry sectors and COVID case numbers. This allowed me to identify sectors that were more or less affected by the pandemic, potentially informing investment decisions based on this information.
 
-5. Data storage: The processed data is stored in an S3 bucket.
+5. Data storage: The processed data is stored in the S3 bucket.
 
 6. Data visualization: Use Databricks' built-in SQL visualization functions to create charts, tables, and other visualizations based on the processed data.
 
