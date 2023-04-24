@@ -23,26 +23,27 @@ The data pipeline for this project involves the following steps:
 
 1. Data ingestion: The data is extracted from S3 bucket and  MySQL database through JDBC.
 
-2. Data cleaning, normalization, and transformation: 
- Data cleaning:
+2. Data cleaning
 - Removing null or missing values by dropna() when download data from Yahoo finance API.
 - Normalizing column names by withColumnRenamed(). For example, the spaces in column names need to be removed; otherwise, it can cause problems when accessing the column names in code or SQL queries. 
 - Remove duplicate rows by dropDuplicates() or use groupBy() to group data by certain columns and aggregate the values
 - Keep data type consisitency. Use cast() to convert data types to a consistent format, or regexp_extract() to extract specific patterns from string data
 
- Data normalization:
+3. Data normalization
  
 When downloading 500 stocks of 10 years' data to create a DataFrame, it can generate a large number of columns that may not be suitable for efficient queries and analysis. Therefore, it is recommended to expand the table vertically instead of horizontally. In this project, a standardized DataFrame format was created for each ticker symbol, and the resulting DataFrames were merged into a single DataFrame with consistent column names and data types. By vertically expanding the table in this way, the resulting df_all DataFrame can be easily queried and analyzed to extract insights about the historical stock prices of multiple companies. This approach allows for more efficient data processing and analysis, and can provide more meaningful insights into the performance of multiple stocks over time.
 
-Data transformation:
+4. Data transformation:
   
 
 
 
 
-3. Data storage: The processed data is stored in an S3 bucket.
+5. Data storage: The processed data is stored in an S3 bucket.
 
-4. Data visualization: Use Databricks' built-in SQL visualization functions to create charts, tables, and other visualizations based on the processed data.
+6. Data visualization: Use Databricks' built-in SQL visualization functions to create charts, tables, and other visualizations based on the processed data.
+
+
 
 ## Technologies Used
 The following technologies were used in this project:
