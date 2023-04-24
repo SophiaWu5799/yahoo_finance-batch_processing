@@ -21,15 +21,14 @@ The data is extracted from the MySQL database and S3 bucket. The processed data 
 ## Data Pipeline
 The data pipeline for this project involves the following steps:
 
-1. Data ingestion: The data is extracted from the MySQL database and Azure storage account using pandas and Python.
+1. Data ingestion: The data is extracted from S3 bucket and  MySQL database through JDBC.
 
-2. Data cleaning and transformation: The data is cleaned and transformed to remove any missing or invalid values. The data is then categorized into industries based on the sector of each company. The stock prices are also normalized to account for any changes in the value of the US dollar during the pandemic.
+2. Data cleaning, normalization, and transformation: 
+- Point 1
 
 3. Data storage: The processed data is stored in an S3 bucket.
 
-4. Data processing: The data is processed using Spark to perform large-scale data analysis.
-
-5. Data visualization: The results of the data analysis are visualized using Tableau. The visualization helps to highlight trends and patterns in the data, making it easier to understand.
+4. Data visualization: Use Databricks' built-in SQL visualization functions to create charts, tables, and other visualizations based on the processed data.
 
 ## Technologies Used
 The following technologies were used in this project:
