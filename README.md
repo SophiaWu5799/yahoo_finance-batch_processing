@@ -34,35 +34,27 @@ The data pipeline for this project involves the following steps:
 When downloading 500 stocks of 10 years' data to create a DataFrame, it can generate a large number of columns that may not be suitable for efficient queries and analysis. Therefore, it is recommended to expand the table vertically instead of horizontally. In this project, a standardized DataFrame format was created for each ticker symbol, and the resulting DataFrames were merged into a single DataFrame with consistent column names and data types. By vertically expanding the table in this way, the resulting df_all DataFrame can be easily queried and analyzed to extract insights about the historical stock prices of multiple companies. This approach allows for more efficient data processing and analysis, and can provide more meaningful insights into the performance of multiple stocks over time.
 
 4. Data transformation:
-  
-
-
-
+- To analyze the effects of the pandemic on the stock market, one approach that I took in this project was to aggregate the historical stock prices by sectors and tickers. It allowed me to analyze the impact from both a sole stock and industry perspective, providing me with a more comprehensive understanding of how the pandemic affected the market.
+- As part of this project, I reformatted the data into specific structures that facilitated analysis. I transformed the historical daily stock prices data into yearly data to calculate market returns and quarterly market return data, enabling me to perform time-series analysis and identify trends over time. This process allowed me to gain a better understanding of the stock market's behavior before, during, and after the pandemic, and ultimately make informed decisions based on the data.
+- I also transformed the data by joining the historical stock prices and COVID case number data by dates. This enabled me to calculate the correlation between these two variables and gain insights into how the pandemic impacted the stock market. For instance, when analyzing the correlation coefficient for AAPL, we observed a shift from a strong negative correlation in Q2 2020 (-0.681) and Q3 2020 (-0.680) to a strong positive correlation in Q4 2020 (0.804). This analysis provides insights into how the relationship between COVID cases and stock prices changed over time, not just for AAPL but also for other companies. Furthermore, I conducted correlation analysis between industry sectors and COVID case numbers. This allowed me to identify sectors that were more or less affected by the pandemic, potentially informing investment decisions based on this information.
 
 5. Data storage: The processed data is stored in an S3 bucket.
 
 6. Data visualization: Use Databricks' built-in SQL visualization functions to create charts, tables, and other visualizations based on the processed data.
 
 
-
 ## Technologies Used
 The following technologies were used in this project:
 
-1. Python: Python is used for data cleaning, transformation, and analysis.
-
-2. Pandas: Pandas is used for data manipulation and analysis.
-
-3. Spark: Spark is used for processing large amounts of data.
-
-4. Databricks: Databricks is used as the computing platform for the project.
-
-5. Tableau: Tableau is used for data visualization.
+1. Spark: Spark is used for processing large amounts of data.
+2. Python: Python is used for data cleaning, transformation, and analysis.
+3. Pandas: Pandas is used for data manipulation and analysis.
+4. Databricks: Databricks is used as the computing platform and visualization tool for the project.
 
 ## Goal Achieved
 
-The goal of this project is to compare the performance of different industries before, during, and after the pandemic. The project also aims to categorize companies into industries and compare the performance of companies in the same industry. The project uses historical, predictive, and forecasting analyses to determine the impact of the pandemic on the stock market. Information arbitrage is used to find meaning between unrelated information, such as comparing the number of COVID cases to the performance of a company's stock during a specific timeframe. The hypothesis is that the more COVID cases, the steeper the decline in the company's stock.
+The goal of this project is to compare the performance of stock market before, during, and after the pandemic. The project also aims to categorize companies into industries and compare the performance of companies in the same industry. The project uses historical, predictive, and forecasting analyses to determine the impact of the pandemic on the stock market. Information arbitrage is used to find meaning between unrelated information, such as comparing the number of COVID cases to the performance of a company's stock during a specific timeframe. The hypothesis is that the more COVID cases, the steeper the decline in the company's stock.
 
-Overall, this data engineering project provides insights into the impact of the COVID-19 pandemic on the stock market and can be used by both data analysts (DA) and data scientists (DS) to inform investment decisions. The data is emphasized to be valuable for both groups, highlighting the versatility and applicability of the data in this project for a wide range of users.
 
 ## Conclusion
-In conclusion, this data engineering project showcases the power of data analysis and visualization in understanding the impact of the COVID-19 pandemic on the stock market. By ingesting and transforming data from multiple sources, and using technologies such as Spark and Tableau, we were able to identify patterns and trends that can be used to inform investment decisions. The use of information arbitrage also allowed us to find meaning between seemingly unrelated information, further enriching our analysis. This project demonstrates the importance of data engineering in extracting insights from large and complex datasets, and the value of collaboration between data analysts and data scientists in leveraging these insights.
+In conclusion, this project showcased the power of data analysis and visualization in understanding the impact of the COVID-19 pandemic on the stock market. By ingesting and transforming data from multiple sources, and using technologies such as Spark and Tableau, I was able to identify patterns and trends that can be used to inform investment decisions. The use of information arbitrage also allowed us to find meaning between seemingly unrelated information, further enriching our analysis. This project demonstrates the importance of data engineering in extracting insights from large and complex datasets, and the value of collaboration between data analysts and data scientists in leveraging these insights.
