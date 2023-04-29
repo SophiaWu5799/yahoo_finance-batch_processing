@@ -1,13 +1,10 @@
 # Databricks notebook source
 #Read the Delta table from S3
 
-s3_bucket = 'asc-de-training-destination-s3'
-table_path = f"s3a://{s3_bucket}/de_1702/sophia_wu/yahoo_finance_project"
+from secrets improt S3_BUCKET
+from secrets improt TABLE_PATH
 
-# from secrets improt S3_BUCKET
-# from secrets improt TABLE_PATH
-
-stock_df= spark.read.format("delta").load(f"{table_path}/stock_df")
+stock_df= spark.read.format("delta").load(f"{TABLE_PATH}/stock_df")
 
 
 # COMMAND ----------
@@ -28,6 +25,12 @@ display(quarterly_avg_df)
 
 # COMMAND ----------
 
+
+
+quarterly_avg_df.write.format("delta").mode("overwrite").option("path", f"{TABLE_PATH}/quarterly_avg_df").saveAsTable("quarterly_avg")
+
+# COMMAND ----------
+
 # compute the quarterly market return for each stock, and then group the stocks by industry. Within each industry group, assign a unique rank to each stock based on its quarterly market return, allowing us to determine the relative performance of each stock within its industry.
 from pyspark.sql.window import Window
 
@@ -44,3 +47,9 @@ quarterly_market_return_df = (quarterly_avg_df
 
 display(quarterly_market_return_df)
 
+
+# COMMAND ----------
+
+from secrets import TABLE_PATH
+
+quarterly_market_return_df.write.format("delta").mode("overwrite").option("path", f"{TABLE_PATH}/quarterly_market_return_df").saveAsTable("quarterly_market_return")

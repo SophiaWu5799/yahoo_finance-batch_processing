@@ -1,22 +1,17 @@
 # Databricks notebook source
 # List tables in mysql database
-# JDBC_DRIVER = "com.mysql.jdbc.Driver"
-# from secrets improt JDBC_URL, USER, PASSWORD, JDBC_DRIVER
 
-jdbc_url = 'jdbc:mysql://database.ascendingdc.com:3306/de_001'
-user = 'sophiawu'
-password = 'welcome'
-jdbc_driver = "com.mysql.jdbc.Driver"
+JDBC_DRIVER = "com.mysql.jdbc.Driver"
 db_name = 'de_001'
-
+from secrets improt JDBC_URL, USER, PASSWORD, JDBC_DRIVER
 
 table_list = (
     spark.read.format("jdbc")
-    .option("driver", jdbc_driver)
-    .option("url", jdbc_url)
+    .option("driver", JDBC_DRIVER)
+    .option("url", JDBC_URL)
     .option("dbtable", "information_schema.tables")
-    .option("user", user)
-    .option("password", password)
+    .option("user", USER)
+    .option("password", PASSWORD)
     .load()
     .filter(f"table_schema = '{db_name}'")
     .select("table_name")
@@ -32,11 +27,11 @@ table_list.show()
 
 covid_case_df = (
     spark.read.format("jdbc")
-    .option("driver", jdbc_driver)
-    .option("url", jdbc_url)
+    .option("driver", JDBC_DRIVER)
+    .option("url", JDBC_URL)
     .option("dbtable", "covidCase")
-    .option("user", user)
-    .option("password", password)
+    .option("user", USER)
+    .option("password", PASSWORD)
     .load()
 )
 
@@ -63,36 +58,19 @@ covid_case_df.printSchema()
 # COMMAND ----------
 
 #Read the Delta table from S3
-s3_bucket = 'asc-de-training-destination-s3'
-table_path = f"s3a://{s3_bucket}/de_1702/sophia_wu/yahoo_finance_project"
 
-# from secrets improt S3_BUCKET
-# from secrets improt TABLE_PATH
+from secrets improt S3_BUCKET
+from secrets improt TABLE_PATH
 
-
-stock_table= spark.read.format("delta").load(f"{table_path}/stock_df")
-
-
-
-# COMMAND ----------
-
-#Read the Delta table from S3
-
-s3_bucket = 'asc-de-training-destination-s3'
-table_path = f"s3a://{s3_bucket}/de_1702/sophia_wu/yahoo_finance_project"
-
-# from secrets improt S3_BUCKET
-# from secrets improt TABLE_PATH
-
-stock_df= spark.read.format("delta").load(f"{table_path}/stock_df")
+stock_table= spark.read.format("delta").load(f"{TABLE_PATH}/stock_df")
 
 
 
 # COMMAND ----------
 
 
-s3_path = f"s3a://{s3_bucket}/users/sophiawu/SP500.csv"
-SP500_df = spark.read.format('csv').option('inferSchema', True).option('header', True).load(s3_path)
+from secrets improt S3_PATH
+SP500_df = spark.read.format('csv').option('inferSchema', True).option('header', True).load(S3_PATH)
 
 SP500_df=SP500_df.withColumnRenamed('GICS?Sector', 'industry')
 
@@ -202,3 +180,12 @@ industry_q4_df = (corr_q4_df
 display(industry_q4_df)
 
 
+
+# COMMAND ----------
+
+
+from secrets import TABLE_PATH
+
+industry_q2_df.write.format("delta").mode("overwrite").option("path", f"{TABLE_PATH}/stock_df").saveAsTable("industry_q2")
+industry_q3_df.write.format("delta").mode("overwrite").option("path", f"{TABLE_PATH}/stock_df").saveAsTable("industry_q3")
+industry_q4_df.write.format("delta").mode("overwrite").option("path", f"{TABLE_PATH}/stock_df").saveAsTable("industry_q4")
