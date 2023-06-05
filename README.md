@@ -1,10 +1,13 @@
 
 # The Pandemic’s Effect on the Stock Market: A Data engineering project
 
+
 ## Project Original Thoughts
 Have you been confused by the impact of the COVID-19 pandemic on the stock market? The pandemic has caused significant volatility and uncertainty in the market, leaving many investors wondering how to navigate this new environment.
 
 In this data engineering project, we aim to explore the effect of the COVID-19 pandemic on the stock market. By analyzing historical stock data and COVID case data, we hope to identify patterns and insights that can be used to inform investment decisions.
+
+![Example Image]（https://drive.google.com/file/d/1M4V64BBFdSOK8waHhtlKc4W_vJmOM6AP/view?usp=sharing）
 
 ## Data Sources
 This project uses the following data sources:
