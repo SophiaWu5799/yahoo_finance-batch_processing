@@ -7,7 +7,7 @@ Have you been confused by the impact of the COVID-19 pandemic on the stock marke
 
 In this data engineering project, we aim to explore the effect of the COVID-19 pandemic on the stock market. By analyzing historical stock data and COVID case data, we hope to identify patterns and insights that can be used to inform investment decisions.
 
-![Example Image]（https://drive.google.com/file/d/1M4V64BBFdSOK8waHhtlKc4W_vJmOM6AP/view?usp=sharing）
+![Example Image]（https://drive.google.com/uc?export=download&id=1M4V64BBFdSOK8waHhtlKc4W_vJmOM6AP）
 
 ## Data Sources
 This project uses the following data sources:
