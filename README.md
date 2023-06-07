@@ -19,7 +19,7 @@ This project uses the following data sources:
 3. Yahoo Finance API: The Yahoo Finance API is used to obtain the historical stock prices of the companies in the SP500 index. The API returns data such as the date, open, close, high, low, adjusted close, and volume.
 
 ## Data Ingestion and Storage
-The data is extracted from the MySQL database and S3 bucket. The processed data is then stored in Auzer data factory.
+The data is extracted from the MySQL database and S3 bucket. The processed data is then stored in S3 bucket.
 
 ## Data Pipeline
 The data pipeline for this project involves the following steps:
